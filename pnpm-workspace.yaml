@@ -1,0 +1,8 @@
+# React Native's Metro resolver and iOS autolinking walk real directory trees and assume a
+# hoisted node_modules. pnpm's default symlinked layout breaks both in ways that surface far
+# from the cause, so the tree is materialised flat.
+nodeLinker: hoisted
+
+# Native binding compiled at install time; used by the lint resolver.
+allowBuilds:
+  unrs-resolver: true

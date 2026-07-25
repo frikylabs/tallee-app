@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "Tallee",
+    "slug": "tallee",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "tallee",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "bundleIdentifier": "dev.frikyfriky11.tallee",
+      "supportsTablet": false
+    },
+    "android": {
+      "package": "dev.frikyfriky11.tallee",
+      "adaptiveIcon": {
+        "backgroundColor": "#0b0a10",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    }
+  }
+}
