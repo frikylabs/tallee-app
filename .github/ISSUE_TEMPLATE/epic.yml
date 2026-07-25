@@ -1,0 +1,33 @@
+name: Epic
+description: A large outcome or phase of work. Stories are tracked as sub-issues.
+type: Epic
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: What is true about the product once this epic closes.
+    validations:
+      required: true
+  - type: input
+    id: proves
+    attributes:
+      label: Proves
+      description: The product thesis or pillar this epic validates.
+    validations:
+      required: true
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      description: The observable end state, phrased so someone outside the work could check it.
+    validations:
+      required: true
+  - type: textarea
+    id: excluded
+    attributes:
+      label: Not in this epic
+      description: Explicit exclusions, and where each one lives instead.
+  - type: markdown
+    attributes:
+      value: Stories are tracked as sub-issues of this epic.

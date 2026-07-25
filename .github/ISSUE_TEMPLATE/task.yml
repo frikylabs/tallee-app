@@ -1,0 +1,25 @@
+name: Task
+description: A technical sub-item of a story, or a standalone chore.
+type: Task
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What
+      description: The work itself, in a sentence or two.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What this unblocks, if it is not obvious.
+  - type: textarea
+    id: done-when
+    attributes:
+      label: Done when
+      placeholder: |
+        - [ ] …
+        - [ ] …
+    validations:
+      required: true
