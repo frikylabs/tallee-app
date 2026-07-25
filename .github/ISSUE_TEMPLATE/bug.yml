@@ -1,0 +1,38 @@
+name: Bug
+description: Behaviour that does not match the documented intent.
+type: Bug
+body:
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happens
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen
+      description: Cite the doc, acceptance criterion, or design spec it contradicts.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. …
+        2. …
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Device, OS and build
+      placeholder: iPhone 15 Pro · iOS 18.5 · dev build 42
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Screenshot, recording, or log output.

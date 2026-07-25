@@ -1,0 +1,31 @@
+name: Story
+description: A vertical slice of user value, small enough to finish in a few sittings.
+type: Story
+body:
+  - type: textarea
+    id: story
+    attributes:
+      label: User story
+      placeholder: As a scorekeeper, I want … so that …
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Observable outcomes. Anything that cannot be checked is not a criterion.
+      placeholder: |
+        - [ ] …
+        - [ ] …
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: What must already exist for this story to be pullable. Link issues.
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Design or architecture references, prior decisions, open questions.

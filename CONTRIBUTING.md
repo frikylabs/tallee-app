@@ -21,6 +21,9 @@ Three tiers, using GitHub issue **types** and **sub-issues**:
   demoable) — never horizontal ("all the models", then "all the UI").
 - **Task** — a technical sub-item of a story, or a standalone chore.
 
+Every issue is opened from a template in `.github/ISSUE_TEMPLATE`, which sets its type; blank issues
+are disabled, so the format never depends on who is typing.
+
 ## Definition of Ready
 
 A story may enter the board only when it has acceptance criteria, a small-enough scope (larger than ~an
@@ -63,7 +66,10 @@ anything larger than **L is split** before it enters the board. Delivery is trac
 
 ## The board
 
-`Backlog → Ready → In Progress → In Review → Done`, with the WIP limit above on the two active columns.
+[`Backlog → Ready → In Progress → In Review → Done`](https://github.com/orgs/frikylabs/projects/1), with
+the WIP limit above on the two active columns. A story reaches *In Review* when its pull request opens and
+*Done* when that pull request merges — both automatic, so the board reflects reality rather than intent.
+Sizes are set on the board, not in the issue body.
 
 ## Cadence
 
