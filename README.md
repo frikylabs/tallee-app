@@ -73,11 +73,28 @@ pnpm start      # the everyday loop: dev server only, then open the installed ap
 `pnpm ios` is needed the first time and whenever the **native** surface changes — a new native dependency,
 an edit to `app.json`, icons, or permissions. Everything else is JavaScript served live to the installed
 build, so `pnpm start` is the loop you live in. `ios/` and `android/` are generated build output and are
-not committed; running on a physical device additionally needs a signing team selected in Xcode.
+not committed.
 
 ```bash
 pnpm lint && pnpm format && pnpm typecheck
 ```
+
+### On a physical device
+
+```bash
+pnpm ios --device    # pick a connected iPhone, then build, install and launch
+```
+
+Two things are set up by hand, once. Sign an Apple ID into **Xcode → Settings → Accounts** — a free
+account is enough, and no project is ever opened in Xcode. Then, the first time a build lands on a given
+phone, trust the developer certificate on the device itself under **Settings → General → VPN & Device
+Management**; iOS installs an untrusted build but refuses to launch it.
+
+Signing is deliberately left out of `app.json`. With no `ios.appleTeamId` the CLI resolves the local
+signing identity itself and grants the build permission to register the device and issue a provisioning
+profile. Pinning a team instead makes it treat signing as already handled and skip that step, and the
+build then fails for want of a matching profile. On a free account the profile expires after seven days,
+after which the app stops launching until it is rebuilt.
 
 ## License
 
