@@ -8,11 +8,9 @@ import type { GameDefinition } from '../engine/definition';
 export const fixture: GameDefinition = {
   id: 'fixture',
   name: 'Fixture',
-  archetype: 'accumulator',
-  winner: 'highest',
   fields: [
-    { key: 'bid', label: 'Bid', min: 0, max: 10 },
-    { key: 'taken', label: 'Taken', min: 0, max: 10 },
+    { key: 'bid', label: 'Bid' },
+    { key: 'taken', label: 'Taken' },
   ],
   score: (values) => {
     const bid = values.bid ?? 0;

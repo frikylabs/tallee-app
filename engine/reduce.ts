@@ -4,11 +4,8 @@ import type { DefinitionRegistry } from './definition';
 export type Slot = { id: string; name: string };
 
 export type Round = {
-  number: number;
   /** What was entered, kept verbatim: the round matrix later derives from this, never from totals. */
   inputs: { slotId: string; values: Record<string, number> }[];
-  /** What the definition scored it as, per slot. */
-  deltas: Record<string, number>;
 };
 
 export type GameState = {
@@ -56,21 +53,16 @@ export function reduce(
         return state;
       }
 
-      const number = state.rounds.length + 1;
-      const deltas: Record<string, number> = {};
-      for (const input of command.inputs) {
-        deltas[input.slotId] = definition.score(input.values, { round: number });
-      }
-
       const totals = { ...state.totals };
-      for (const [slotId, delta] of Object.entries(deltas)) {
-        totals[slotId] = (totals[slotId] ?? 0) + delta;
+      for (const input of command.inputs) {
+        totals[input.slotId] = (totals[input.slotId] ?? 0) + definition.score(input.values);
       }
 
+      const rounds = [...state.rounds, { inputs: command.inputs }];
       return {
         ...state,
-        dealerIndex: state.slots.length === 0 ? 0 : number % state.slots.length,
-        rounds: [...state.rounds, { number, inputs: command.inputs, deltas }],
+        dealerIndex: state.slots.length === 0 ? 0 : rounds.length % state.slots.length,
+        rounds,
         totals,
       };
     }
