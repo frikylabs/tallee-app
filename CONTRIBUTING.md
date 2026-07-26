@@ -59,7 +59,9 @@ Nothing is done until **all** of the following hold:
 - **[Conventional Commits](https://www.conventionalcommits.org/)** — atomic, machine-readable history
   (`feat: add round-input strip widget`).
 - **Squash-merge, delete-on-merge.** `main` is protected: no direct pushes, CI must pass to merge.
-- Docs-only changes may carry `skip-ci` in the subject to skip the full pipeline.
+- **Every pull request runs the pipeline, including docs-only ones.** `checks` is a required status
+  check, and a skipped workflow reports nothing at all — which branch protection reads as pending, not
+  passed, leaving the pull request permanently unmergeable.
 
 ## Estimation & flow
 
