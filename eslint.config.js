@@ -10,4 +10,11 @@ module.exports = [
   {
     ignores: ['dist/*', 'ios/*', 'android/*', '.expo/*'],
   },
+  {
+    // Test files and Jest's own setup run in the Jest environment, where `jest` is a global.
+    files: ['**/*.test.ts', '**/*.test.tsx', 'jest.setup.js'],
+    languageOptions: {
+      globals: { jest: 'readonly' },
+    },
+  },
 ];
