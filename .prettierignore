@@ -1,0 +1,10 @@
+# Prose has its own conventions — see docs/doc-style.md. A code formatter has no business
+# rewrapping it.
+*.md
+docs/
+
+pnpm-lock.yaml
+ios/
+android/
+.expo/
+dist/

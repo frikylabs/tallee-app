@@ -62,8 +62,22 @@ unit-tested.
 
 ## Getting started
 
-The app scaffold and setup instructions land with the first build. Until then, this repository is
-documentation-first by design — the product was specified before a line of it was written.
+Requires macOS with Xcode and its command line tools, Node 22+, pnpm and CocoaPods.
+
+```bash
+pnpm install    # flat node_modules — see pnpm-workspace.yaml for why
+pnpm ios        # generate the native project, compile it, install it on a simulator
+pnpm start      # the everyday loop: dev server only, then open the installed app
+```
+
+`pnpm ios` is needed the first time and whenever the **native** surface changes — a new native dependency,
+an edit to `app.json`, icons, or permissions. Everything else is JavaScript served live to the installed
+build, so `pnpm start` is the loop you live in. `ios/` and `android/` are generated build output and are
+not committed; running on a physical device additionally needs a signing team selected in Xcode.
+
+```bash
+pnpm lint && pnpm format && pnpm typecheck
+```
 
 ## License
 
