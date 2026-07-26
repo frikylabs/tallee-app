@@ -1,0 +1,33 @@
+appId: dev.frikyfriky11.tallee
+---
+# The engine's central claim, exercised through the UI: state is replayed from the command log, so a
+# round entered before a restart is still there after one.
+#
+# Text patterns are anchored to the whole node, so matching part of a line needs explicit wildcards.
+
+- launchApp
+
+# Start from an empty log, whichever state the app was left in.
+- runFlow:
+    when:
+      visible: 'Clear log'
+    commands:
+      - tapOn: 'Clear log'
+- assertVisible: 'No games yet'
+
+- tapOn: 'Deal'
+- assertVisible: '.*No rounds yet.*'
+
+- tapOn: 'Commit round'
+- assertVisible: '.*1 round played.*'
+- assertVisible: '40'
+- assertVisible: '-20'
+- assertVisible: '30'
+
+# Nothing survives in memory across this, so what comes back was rebuilt from the log.
+- stopApp
+- launchApp
+- assertVisible: '.*1 round played.*'
+- assertVisible: '40'
+- assertVisible: '-20'
+- assertVisible: '30'
