@@ -10,6 +10,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Hosted runners, deliberately. Public repositories get unlimited hosted minutes, so the reason to
+  # self-host (the private-repo minute cap) does not apply — and a self-hosted runner would execute
+  # any fork's pull request code inside the network it sits in.
   checks:
     name: checks
     runs-on: ubuntu-latest
