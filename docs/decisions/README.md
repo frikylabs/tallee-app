@@ -21,3 +21,4 @@ to `NNNN-short-title.md`.
 | [0003](./0003-react-native-expo-client.md) | React Native + Expo for the client | Accepted |
 | [0004](./0004-accumulator-first-archetype.md) | Ship the accumulator archetype first | Accepted |
 | [0005](./0005-serverless-local-first-memory.md) | Serverless, local-first, gossiped group memory | Accepted |
+| [0006](./0006-sqlite-command-log.md) | SQLite as the durable command log | Accepted |

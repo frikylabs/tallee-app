@@ -21,8 +21,6 @@
       },
       "predictiveBackGestureEnabled": false
     },
-    "plugins": [
-      "expo-sqlite"
-    ]
+    "plugins": ["expo-sqlite"]
   }
 }
