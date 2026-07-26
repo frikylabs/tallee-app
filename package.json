@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "format": "prettier --check .",
     "typecheck": "tsc --noEmit",
-    "test": "jest"
+    "test": "jest",
+    "e2e": "maestro test .maestro"
   },
   "dependencies": {
     "expo": "~57.0.8",

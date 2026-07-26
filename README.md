@@ -76,8 +76,19 @@ build, so `pnpm start` is the loop you live in. `ios/` and `android/` are genera
 not committed.
 
 ```bash
-pnpm lint && pnpm format && pnpm typecheck
+pnpm lint && pnpm format && pnpm typecheck && pnpm test
 ```
+
+### End-to-end flows
+
+```bash
+pnpm e2e    # drives the booted simulator with real taps
+```
+
+Needs [Maestro](https://maestro.mobile.dev) and a JVM, and a simulator already booted. Note that the
+Homebrew cask named `maestro` is an unrelated product. These flows do **not** run in CI: the pipeline is
+Linux, and a macOS runner able to boot a simulator would execute fork pull requests inside the network it
+sits in. End-to-end coverage is therefore a local gate, and `checks` remains the merge gate.
 
 ### On a physical device
 
