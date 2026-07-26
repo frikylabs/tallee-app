@@ -15,6 +15,9 @@ estimates — see *Estimation* below.
 Three tiers, using GitHub issue **types** and **sub-issues**:
 
 - **Epic** — a large outcome or major phase of work, tracked on the board. Containers, rarely closed.
+  Epics are named for the **outcome** they produce, never for their position in a sequence — ordering is
+  what the board expresses, and a name that encodes it goes stale the moment plans move. Shipping
+  boundaries are **milestones**, which close; epics are not.
 - **Story** — a **vertical slice of user value**, small enough to finish in a few sittings, written as
   *"As a scorekeeper, I want … so that …"* with explicit **acceptance criteria**. This is the unit that
   flows across the board. Slices are always vertical (top-to-bottom through the stack, independently
