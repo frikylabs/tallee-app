@@ -1,9 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+import BenchScreen from './bench/BenchScreen';
 import { palette } from './theme';
 
+// Temporary: the persistence benchmark replaces the home screen while it runs. Reverted with the
+// bench harness once the store is pinned.
+const RUN_BENCHMARK = true;
+
 export default function App() {
+  if (RUN_BENCHMARK) {
+    return (
+      <>
+        <StatusBar style="light" />
+        <BenchScreen />
+      </>
+    );
+  }
+
   return (
     <View style={styles.screen}>
       <StatusBar style="light" />
